@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is Watching</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="project-name">WHO IS WATCHING</div>
+        <div class="search-container">
+            <input type="text" id="target_channel_id_input" placeholder="配信者を入力...">
+            <button id="update_target_channel">
+                <img id="search_button_img" src="image/search1.svg" width="20px" height="20px">
+            </button>
+        </div>
+        <div>
+            <a href="https://github.com/360tetsu360/who-is-watching" target="_blank">
+                <img id="github-icon-img" src="image/github-mark-white.svg" alt="GitHub" width="30" height="30" />
+            </a>
+            <button id="color_theme_toggle">
+                <img id="color_theme_img" src="image/moon.svg" alt="Moon" width="30" height="30" />
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div id="description">Twitch配信を観ている配信者を探します</div>
+        <div id="search-result">
+            <a id="target_channel_url">
+                <div id="target_image_container">
+                    <img id="target_channel_profile_image">
+                    <div class="target-overlay" id="target_channel_streaming">配信中</div>
+                </div>
+            </a>
+            <div class="target-item-details">
+                <span class="item-name" id="target_channel_display_name">Streamer Name</span>
+                <span class="item-title" id="target_channel_last_title">Stream Title</span>
+                <span class="item-game" id="target_channel_last_game">Game Name</span>
+            </div>
+        </div>
+
+        <div>検出率は100%ではありません。検出するまでに時間を要する場合があります。</div>
+        <div class="checkbox-container">
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_mode" checked>Moderators</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_vip" checked>VIPs</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_staff" checked>Staffs</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_viewer" checked>Viewers</label>
+            <button type="button" id="reset_button" onclick="reset_list()">
+                <img src="image/reload1.svg" id="reset_button_img" width="20px" height="20px">
+                <p>Reset</p>
+            </button>
+            <a id="tweet-button" href="#">
+                <img id="x_img" src="./image/logo.svg">
+                <p>に投稿</p>
+            </a>
+        </div>
+
+
+        <div id="list-container">
+            <ul id="watching_streamer_list">
+            </ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
