@@ -1998,5 +1998,9 @@
     {
         "twitch_id": "gbvs_official",
         "display_name": "gbvs_official"
+    },
+    {
+        "twitch_id": "tsuna_nekota",
+        "display_name": "猫汰つな"
     }
 ]
