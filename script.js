@@ -282,7 +282,7 @@ function updateTarget() {
                 target_channel_streaming.style.display = "none"
             }
             loader.style.display = "block";
-            const required_time = required_time_to_find_viewer(channel_status.viewer, 0.5);
+            const required_time = required_time_to_find_viewer(channel_status.viewer, 0.3);
             required_time_message.innerText = 
                 `${channel_status.display_name}さんの配信を視聴している配信者をおおよそ見つけるまで、約${required_time}秒かかります。`
             listed_channels = [];
@@ -295,7 +295,7 @@ function updateTarget() {
             current_login = target_id;
             current_loop = setInterval(async () => {
                 await check_watching_streamer(target_id);
-            }, 100);
+            }, 300);
         }
     );
 }
