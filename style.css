@@ -48,6 +48,10 @@ header {
     z-index: 100;
 }
 
+a {
+    text-decoration: none;
+}
+
 #description {
     margin-bottom: 10px;
 }
