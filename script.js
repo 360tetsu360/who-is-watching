@@ -102,7 +102,8 @@ async function twitch_get_channel_status(login) {
     const viewer = is_streaming == null ? 0 : result[2].data.userOrError.stream.viewersCount;
     const follower = result[3].data.user.followers.totalCount;
     const profile_image_url = result[3].data.user.profileImageURL;
-
+    const primary_color_hex = result[3].data.user.primaryColorHex;
+    
     return {
         is_streaming: is_streaming != null,
         stream_created_at: stream_created_at,
@@ -111,7 +112,8 @@ async function twitch_get_channel_status(login) {
         display_name: display_name,
         profile_image_url: profile_image_url,
         viewer: viewer,
-        follower: follower
+        follower: follower,
+        primary_color_hex: primary_color_hex
     }
 }
 
@@ -148,6 +150,7 @@ color_theme_toggle.onclick = toggle_theme;
 
 const target_channel_id_input = document.getElementById("target_channel_id_input");
 const update_target_channel = document.getElementById("update_target_channel");
+const search_result = document.getElementById("search-result");
 const target_channel_link = document.getElementById("target_channel_url");
 const target_channel_profile_image = document.getElementById("target_channel_profile_image");
 const target_channel_display_name = document.getElementById("target_channel_display_name");
@@ -233,6 +236,7 @@ function updateTarget() {
             target_channel_display_name.innerText = channel_status.display_name;
             target_channel_last_title.innerText = channel_status.last_broadcast_title;
             target_channel_last_game.innerText = channel_status.last_broadcast_game;
+            search_result.style.borderColor = `#${channel_status.primary_color_hex}`;
             if (channel_status.is_streaming) {
                 target_channel_streaming.style.display = "block"
             } else {
@@ -300,8 +304,8 @@ async function check_watching_streamer(login) {
                     continue;
                 }
                 if (mode.login == channel.twitch_id) {
-                    await add_list(channel.twitch_id);
                     listed_channels.push(channel.twitch_id);
+                    await add_list(channel.twitch_id);
                 }
             }
         }
@@ -314,8 +318,8 @@ async function check_watching_streamer(login) {
                     continue;
                 }
                 if (vip.login == channel.twitch_id) {
-                    await add_list(channel.twitch_id);
                     listed_channels.push(channel.twitch_id);
+                    await add_list(channel.twitch_id);
                 }
             }
         }
@@ -328,8 +332,8 @@ async function check_watching_streamer(login) {
                     continue;
                 }
                 if (staff.login == channel.twitch_id) {
-                    await add_list(channel.twitch_id);
                     listed_channels.push(channel.twitch_id);
+                    await add_list(channel.twitch_id);
                 }
             }
         }
@@ -342,8 +346,8 @@ async function check_watching_streamer(login) {
                     continue;
                 }
                 if (viewer.login == channel.twitch_id) {
-                    await add_list(channel.twitch_id);
                     listed_channels.push(channel.twitch_id);
+                    await add_list(channel.twitch_id);
                 }
             }
         }

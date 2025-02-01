@@ -147,7 +147,7 @@ main {
 #search-result {
     display: flex;
     padding: 15px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid;
     border-radius: 10px;
     margin-bottom: 15px;
     background-color: var(--background-color-dark);
