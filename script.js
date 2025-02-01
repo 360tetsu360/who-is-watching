@@ -168,6 +168,7 @@ const check_staff = document.getElementById("check_staff");
 const check_viewer = document.getElementById("check_viewer");
 const tweet_button = document.getElementById("tweet-button");
 const loader = document.getElementById("loader");
+const required_time_message = document.getElementById("required_time_message");
 set_initial_theme();
 color_theme_toggle.onclick = toggle_theme;
 
@@ -237,6 +238,14 @@ function find_streamer(text) {
     return text;
 }
 
+function required_time_to_find_viewer(total, trial_time) {
+    if (100 >= total) return 0;
+    const confidence = 0.95;
+    const p = 100 / total;
+    const n = Math.ceil(Math.log(1 - confidence) / Math.log(1 - p));
+    return Math.round(n * trial_time);
+}
+
 function updateTarget() {
     const target_id = find_streamer(target_channel_id_input.value);
     twitch_get_channel_status(target_id).then(
@@ -257,6 +266,7 @@ function updateTarget() {
                 target_channel_streaming.style.display = "none"
                 target_channel_link.href = "#";
                 loader.style.display = "none";
+                required_time_message.innerText = "";
                 return;
             }
             target_channel_link.href = `https://www.twitch.tv/${target_id}`;
@@ -272,6 +282,9 @@ function updateTarget() {
                 target_channel_streaming.style.display = "none"
             }
             loader.style.display = "block";
+            const required_time = required_time_to_find_viewer(channel_status.viewer, 0.5);
+            required_time_message.innerText = 
+                `${channel_status.display_name}さんの配信を視聴している配信者をおおよそ見つけるまで、約${required_time}秒かかります。`
             listed_channels = [];
             watching_streamer_list.innerHTML = "";
 
@@ -282,7 +295,7 @@ function updateTarget() {
             current_login = target_id;
             current_loop = setInterval(async () => {
                 await check_watching_streamer(target_id);
-            }, 500);
+            }, 100);
         }
     );
 }
@@ -301,7 +314,11 @@ async function add_list(login) {
     image_container.appendChild(overlay);
     const name_elem = document.createElement("div");
     name_elem.className = "item-name";
-    name_elem.textContent = `${streamer_status.display_name} (${login})`;
+    if (streamer_status.display_name !== login) {
+        name_elem.textContent = `${streamer_status.display_name} (${login})`;
+    } else {
+        name_elem.textContent = streamer_status.display_name;
+    }
     const details = document.createElement("div");
     details.className = "item-details";
     details.appendChild(name_elem);

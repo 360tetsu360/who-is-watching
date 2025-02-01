@@ -28,6 +28,8 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Noto Sans JP', sans-serif;
     display: flex;
     flex-direction: column;
@@ -389,6 +391,12 @@ footer {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#required_time_message {
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 600px;
 }
 
 @media (min-width: 1024px) {
