@@ -337,8 +337,6 @@ footer {
 }
 
 .checkbox-item {
-    margin-left: 10px;
-    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -361,7 +359,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100px;
+    width: 90px;
     background-color: black;
     color: white;
     border: none;
