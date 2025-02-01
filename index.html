@@ -35,9 +35,10 @@
     </header>
 
     <main>
-        <div id="description">Twitch配信を観ている配信者を探します</div>
+        <div id="description">Twitch配信を観ている配信者を探します。</div>
+        <div id="description">配信者が見つからない場合はTwitch IDを入力してください。</div>
         <div id="search-result">
-            <a id="target_channel_url">
+            <a id="target_channel_url" target="_blank">
                 <div id="target_image_container">
                     <img id="target_channel_profile_image">
                     <div class="target-overlay" id="target_channel_streaming">配信中</div>
@@ -60,7 +61,7 @@
                 <img src="image/reload1.svg" id="reset_button_img" width="20px" height="20px">
                 <p>Reset</p>
             </button>
-            <a id="tweet-button" href="#">
+            <a id="tweet-button" target="_blank">
                 <img id="x_img" src="./image/logo.svg">
                 <p>に投稿</p>
             </a>

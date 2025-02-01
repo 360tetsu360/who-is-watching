@@ -146,7 +146,8 @@ const github_icon_img = document.getElementById("github-icon-img");
 set_initial_theme();
 color_theme_toggle.onclick = toggle_theme;
 
-const target_id_input = document.getElementById("update_target_channel");
+const target_channel_id_input = document.getElementById("target_channel_id_input");
+const update_target_channel = document.getElementById("update_target_channel");
 const target_channel_link = document.getElementById("target_channel_url");
 const target_channel_profile_image = document.getElementById("target_channel_profile_image");
 const target_channel_display_name = document.getElementById("target_channel_display_name");
@@ -164,8 +165,22 @@ fetch('twitch_channels.json')
     .then(response => response.json())
     .then(data => twitch_channels = data)
     .catch(error => console.error('Error loading JSON:', error));
-target_id_input.onclick = updateTarget;
+update_target_channel.onclick = updateTarget;
+target_channel_id_input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        updateTarget();
+    }
+});
 tweet_button.onclick = postToX;
+var current_loop = null;
+var current_login = null;
+
+const params = new URLSearchParams(window.location.search);
+if (params.has("id")) {
+    const id = params.get("id");
+    target_channel_id_input.value = id;
+    updateTarget();
+}
 
 function set_initial_theme() {
     const savedTheme = localStorage.getItem('theme');
@@ -196,10 +211,18 @@ function toggle_theme() {
     localStorage.setItem('theme', currentTheme);
 }
 
-var current_loop = null;
-var current_login = null;
+function find_streamer(text) {
+    for (channel of twitch_channels) {
+        if (channel.twitch_id === text || channel.display_name === text) {
+            return channel.twitch_id;
+        }
+    }
+
+    return text;
+}
+
 function updateTarget() {
-    const target_id = document.getElementById("target_channel_id_input").value;
+    const target_id = find_streamer(target_channel_id_input.value);
     twitch_get_channel_status(target_id).then(
         (channel_status) => {
             if (channel_status == null) {
@@ -215,7 +238,8 @@ function updateTarget() {
             } else {
                 target_channel_streaming.style.display = "none"
             }
-            reset_list();
+            listed_channels = [];
+            watching_streamer_list.innerHTML = "";
 
             if (current_loop) {
                 clearInterval(current_loop);
@@ -244,6 +268,7 @@ async function add_list(login) {
     const link = document.createElement("a");
     link.href = `https://www.twitch.tv/${login}`;
     link.appendChild(image_container);
+    link.target = "_blank";
     const name_elem = document.createElement("div");
     name_elem.className = "item-name";
     name_elem.textContent = streamer_status.display_name;
@@ -257,6 +282,7 @@ async function add_list(login) {
     const entry = document.createElement('li');
     entry.appendChild(list_item);
     watching_streamer_list.appendChild(entry);
+    postToX();
 }
 
 var listed_channels = [];
@@ -325,8 +351,7 @@ async function check_watching_streamer(login) {
 }
 
 function reset_list() {
-    listed_channels = [];
-    watching_streamer_list.innerHTML = "";
+    updateTarget();
 }
 
 async function postToX() {
@@ -352,8 +377,8 @@ async function postToX() {
         }
     }
     const text = encodeURIComponent(customText);
-    const url = encodeURIComponent(window.location.href);
+    const url = encodeURIComponent(`${window.location.origin}${window.location.pathname}?id=${current_login}`);
     const hashtags = encodeURIComponent("whoiswatchingtwitch");
     const tweetUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}&hashtags=${hashtags}`;
-    window.open(tweetUrl, "_blank");
-  }
+    tweet_button.href = tweetUrl;
+}
