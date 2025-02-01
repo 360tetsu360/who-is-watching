@@ -145,6 +145,7 @@ main {
     transition: background-color 0.3s ease;
     border-radius: 10px;
     border: 1px solid var(--primary-color);
+    margin-bottom: 10px;
 }
 
 #list-container ul {
@@ -167,7 +168,6 @@ main {
     border: 1px solid;
     border-radius: 10px;
     border-color: var(--primary-color);
-    margin-bottom: 15px;
     background-color: var(--background-color-dark);
     transition: background-color 0.3s ease;
     width: 100%;
