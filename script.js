@@ -93,27 +93,33 @@ async function twitch_get_channel_status(login) {
     if (!result[0].data) {
         return null;
     }
-    const is_streaming = result[0].data.user.stream;
-    const broadcast_status = result[1].data.user.lastBroadcast;
-    const stream_created_at = is_streaming == null ? "" : is_streaming.createdAt;
-    const last_broadcast_title = broadcast_status.title;
-    const last_broadcast_game = broadcast_status.game.displayName;
-    const display_name = result[2].data.userOrError.displayName;
-    const viewer = is_streaming == null ? 0 : result[2].data.userOrError.stream.viewersCount;
-    const follower = result[3].data.user.followers.totalCount;
-    const profile_image_url = result[3].data.user.profileImageURL;
-    const primary_color_hex = result[3].data.user.primaryColorHex;
-    
-    return {
-        is_streaming: is_streaming != null,
-        stream_created_at: stream_created_at,
-        last_broadcast_title: last_broadcast_title,
-        last_broadcast_game: last_broadcast_game,
-        display_name: display_name,
-        profile_image_url: profile_image_url,
-        viewer: viewer,
-        follower: follower,
-        primary_color_hex: primary_color_hex
+
+    try {
+        const is_streaming = result[0].data.user.stream;
+        const broadcast_status = result[1].data.user.lastBroadcast;
+        const stream_created_at = is_streaming == null ? "" : is_streaming.createdAt;
+        const last_broadcast_title = broadcast_status.title;
+        const last_broadcast_game = broadcast_status.game.displayName;
+        const display_name = result[2].data.userOrError.displayName;
+        const viewer = is_streaming == null ? 0 : result[2].data.userOrError.stream.viewersCount;
+        const follower = result[3].data.user.followers.totalCount;
+        const profile_image_url = result[3].data.user.profileImageURL;
+        const primary_color_hex = result[3].data.user.primaryColorHex;
+        
+        return {
+            is_streaming: is_streaming != null,
+            stream_created_at: stream_created_at,
+            last_broadcast_title: last_broadcast_title,
+            last_broadcast_game: last_broadcast_game,
+            display_name: display_name,
+            profile_image_url: profile_image_url,
+            viewer: viewer,
+            follower: follower,
+            primary_color_hex: primary_color_hex
+        };
+    }
+    catch {
+        return null;
     }
 }
 
@@ -145,9 +151,6 @@ const color_theme_img = document.getElementById("color_theme_img");
 const search_button_img = document.getElementById("search_button_img");
 const reset_button_img = document.getElementById("reset_button_img");
 const github_icon_img = document.getElementById("github-icon-img");
-set_initial_theme();
-color_theme_toggle.onclick = toggle_theme;
-
 const target_channel_id_input = document.getElementById("target_channel_id_input");
 const update_target_channel = document.getElementById("update_target_channel");
 const search_result = document.getElementById("search-result");
@@ -158,11 +161,16 @@ const target_channel_streaming = document.getElementById("target_channel_streami
 const target_channel_last_title = document.getElementById("target_channel_last_title");
 const target_channel_last_game = document.getElementById("target_channel_last_game");
 const watching_streamer_list = document.getElementById("watching_streamer_list");
+const list_container = document.getElementById("list-container");
 const check_mode = document.getElementById("check_mode");
 const check_vip = document.getElementById("check_vip");
 const check_staff = document.getElementById("check_staff");
 const check_viewer = document.getElementById("check_viewer");
 const tweet_button = document.getElementById("tweet-button");
+const loader = document.getElementById("loader");
+set_initial_theme();
+color_theme_toggle.onclick = toggle_theme;
+
 var twitch_channels = [];
 fetch('twitch_channels.json')
     .then(response => response.json())
@@ -190,16 +198,18 @@ function set_initial_theme() {
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
         color_theme_img.src = savedTheme == "dark" ? "image/sun.svg" : "image/moon.svg";
-        search_button_img.src = savedTheme == "dark" ? "image/search1.svg" : "image/search2.svg";
+        search_button_img.src = savedTheme == "dark" ? "image/search2.svg" : "image/search1.svg";
         reset_button_img.src = savedTheme == "dark" ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = savedTheme == "dark" ? "image/github-mark-white.svg" : "image/github-mark.svg";
+        target_channel_profile_image.src = savedTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
     } else {
         const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', prefersDarkMode ? 'dark' : 'light');
         color_theme_img.src = prefersDarkMode ? "image/sun.svg" : "image/moon.svg";
-        search_button_img.src = prefersDarkMode ? "image/search1.svg" : "image/search2.svg";
+        search_button_img.src = prefersDarkMode ? "image/search2.svg" : "image/search1.svg";
         reset_button_img.src = prefersDarkMode ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = prefersDarkMode ? "image/github-mark-white.svg" : "image/github-mark.svg";
+        target_channel_profile_image.src = prefersDarkMode ? "image/question1.svg" : "image/question2.svg";
     }
 }
 
@@ -207,11 +217,14 @@ function toggle_theme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     color_theme_img.src = newTheme == "dark" ? "image/sun.svg" : "image/moon.svg";
-    search_button_img.src = newTheme == "dark" ? "image/search1.svg" : "image/search2.svg";
+    search_button_img.src = newTheme == "dark" ? "image/search2.svg" : "image/search1.svg";
     reset_button_img.src = newTheme == "dark" ? "image/reload2.svg" : "image/reload1.svg";
     github_icon_img.src = newTheme == "dark" ? "image/github-mark-white.svg" : "image/github-mark.svg";
+    if (!current_loop) {
+        target_channel_profile_image.src = newTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
+    }
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', currentTheme);
+    localStorage.setItem('theme', newTheme);
 }
 
 function find_streamer(text) {
@@ -229,6 +242,21 @@ function updateTarget() {
     twitch_get_channel_status(target_id).then(
         (channel_status) => {
             if (channel_status == null) {
+                listed_channels = [];
+                watching_streamer_list.innerHTML = "";
+                if (current_loop) {
+                    clearInterval(current_loop);
+                }
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                target_channel_profile_image.src = currentTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
+                target_channel_display_name.innerText = "Streamer Name";
+                target_channel_last_title.innerText = "Stream Title";
+                target_channel_last_game.innerText = "Game Name";
+                search_result.style.borderColor = "var(--primary-color)";
+                list_container.style.borderColor = "var(--primary-color)";
+                target_channel_streaming.style.display = "none"
+                target_channel_link.href = "#";
+                loader.style.display = "none";
                 return;
             }
             target_channel_link.href = `https://www.twitch.tv/${target_id}`;
@@ -237,11 +265,13 @@ function updateTarget() {
             target_channel_last_title.innerText = channel_status.last_broadcast_title;
             target_channel_last_game.innerText = channel_status.last_broadcast_game;
             search_result.style.borderColor = `#${channel_status.primary_color_hex}`;
+            list_container.style.borderColor = `#${channel_status.primary_color_hex}`;
             if (channel_status.is_streaming) {
                 target_channel_streaming.style.display = "block"
             } else {
                 target_channel_streaming.style.display = "none"
             }
+            loader.style.display = "block";
             listed_channels = [];
             watching_streamer_list.innerHTML = "";
 
@@ -271,7 +301,7 @@ async function add_list(login) {
     image_container.appendChild(overlay);
     const name_elem = document.createElement("div");
     name_elem.className = "item-name";
-    name_elem.textContent = streamer_status.display_name;
+    name_elem.textContent = `${streamer_status.display_name} (${login})`;
     const details = document.createElement("div");
     details.className = "item-details";
     details.appendChild(name_elem);
@@ -294,6 +324,10 @@ async function check_watching_streamer(login) {
     const community = await twitch_get_community(login);
 
     if (!community) {
+        return;
+    }
+
+    if (login != current_login) {
         return;
     }
     

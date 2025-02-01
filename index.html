@@ -24,7 +24,7 @@
                 <img id="search_button_img" src="image/search1.svg" width="20px" height="20px">
             </button>
         </div>
-        <div>
+        <div id="button_container">
             <a href="https://github.com/360tetsu360/who-is-watching" target="_blank">
                 <img id="github-icon-img" src="image/github-mark-white.svg" alt="GitHub" width="30" height="30" />
             </a>
@@ -40,7 +40,7 @@
         <div id="search-result">
             <a id="target_channel_url" target="_blank">
                 <div id="target_image_container">
-                    <img id="target_channel_profile_image">
+                    <img id="target_channel_profile_image" src="image/question1.svg">
                     <div class="target-overlay" id="target_channel_streaming">配信中</div>
                 </div>
             </a>
@@ -69,8 +69,10 @@
 
 
         <div id="list-container">
-            <ul id="watching_streamer_list">
-            </ul>
+            <ul id="watching_streamer_list"></ul>
+            <div class="loader-container">
+                <div class="loader" id="loader"></div>
+            </div>
         </div>
     </main>
     <script src="script.js"></script>
