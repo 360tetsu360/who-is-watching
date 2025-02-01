@@ -190,12 +190,14 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100px;
+    text-decoration: none;
 }
 
 #search-result .item-name {
     font-size: 18px;
     font-weight: bold;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 #search-result .item-title {
@@ -258,11 +260,13 @@ main {
     align-items: center;
     justify-content: space-between;
     height: 50px;
+    text-decoration: none;
 }
 
 .item-name {
     font-size: 18px;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 footer {
