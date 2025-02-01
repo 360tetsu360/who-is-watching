@@ -265,10 +265,6 @@ async function add_list(login) {
     image_container.className = "image-container";
     image_container.appendChild(image_elem);
     image_container.appendChild(overlay);
-    const link = document.createElement("a");
-    link.href = `https://www.twitch.tv/${login}`;
-    link.appendChild(image_container);
-    link.target = "_blank";
     const name_elem = document.createElement("div");
     name_elem.className = "item-name";
     name_elem.textContent = streamer_status.display_name;
@@ -277,10 +273,14 @@ async function add_list(login) {
     details.appendChild(name_elem);
     const list_item = document.createElement("div");
     list_item.className = "list-item"
-    list_item.appendChild(link);
+    list_item.appendChild(image_container);
     list_item.appendChild(details);
+    const link = document.createElement("a");
+    link.href = `https://www.twitch.tv/${login}`;
+    link.appendChild(list_item);
+    link.target = "_blank";
     const entry = document.createElement('li');
-    entry.appendChild(list_item);
+    entry.appendChild(link);
     watching_streamer_list.appendChild(entry);
     postToX();
 }

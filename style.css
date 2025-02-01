@@ -114,6 +114,7 @@ main {
 #color_theme_toggle {
     background-color: var(--background-color-dark);
     border: none;
+    cursor: pointer;
 }
 
 #list-container {
