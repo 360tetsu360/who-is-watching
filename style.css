@@ -59,8 +59,13 @@ a {
     text-decoration: none;
 }
 
-#description {
-    margin-bottom: 10px;
+.description {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 600px;
 }
 
 #project-name {
@@ -172,6 +177,7 @@ main {
     transition: background-color 0.3s ease;
     width: 100%;
     max-width: 600px;
+    margin-top: 10px;
 }
 
 #target_image_container {
@@ -391,12 +397,6 @@ footer {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-#required_time_message {
-    word-wrap: break-word;
-    white-space: normal;
-    max-width: 600px;
 }
 
 @media (min-width: 1024px) {
