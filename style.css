@@ -223,6 +223,7 @@ main {
     border: none;
     background-color: var(--background-color-dark);
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .image-container {
