@@ -2014,5 +2014,9 @@
     {
         "twitch_id": "twitchreo",
         "display_name": "TwitchReo"
+    },
+    {
+        "twitch_id": "hkmode001",
+        "display_name": "hkmode001"
     }
 ]
