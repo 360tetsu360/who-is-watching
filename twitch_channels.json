@@ -2004,11 +2004,15 @@
         "display_name": "猫汰つな"
     },
     {
-        "twitch_id": "Masuo1029",
+        "twitch_id": "masuo1029",
         "display_name": "Masuo1029"
     },
     {
         "twitch_id": "masato_wtnb",
         "display_name": "わっちゃんですかね"
+    },
+    {
+        "twitch_id": "twitchreo",
+        "display_name": "TwitchReo"
     }
 ]

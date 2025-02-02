@@ -318,7 +318,7 @@ async function add_list(login) {
     image_container.appendChild(overlay);
     const name_elem = document.createElement("div");
     name_elem.className = "item-name";
-    if (streamer_status.display_name !== login) {
+    if (streamer_status.display_name.toLowerCase() !== login.toLowerCase()) {
         name_elem.textContent = `${streamer_status.display_name} (${login})`;
     } else {
         name_elem.textContent = streamer_status.display_name;
