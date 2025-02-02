@@ -146,6 +146,7 @@ async function twitch_get_community(login) {
     return result.data?.user?.channel?.chatters ?? null;
 }
 
+const meta_theme_color = document.querySelector('meta[name="theme-color"]');
 const color_theme_toggle = document.getElementById("color_theme_toggle");
 const color_theme_img = document.getElementById("color_theme_img");
 const search_button_img = document.getElementById("search_button_img");
@@ -203,6 +204,7 @@ function set_initial_theme() {
         reset_button_img.src = savedTheme == "dark" ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = savedTheme == "dark" ? "image/github-mark-white.svg" : "image/github-mark.svg";
         target_channel_profile_image.src = savedTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
+        meta_theme_color.content = savedTheme == "dark" ? "#181f25" : "#F3F3F3";
     } else {
         const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', prefersDarkMode ? 'dark' : 'light');
@@ -211,6 +213,7 @@ function set_initial_theme() {
         reset_button_img.src = prefersDarkMode ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = prefersDarkMode ? "image/github-mark-white.svg" : "image/github-mark.svg";
         target_channel_profile_image.src = prefersDarkMode ? "image/question1.svg" : "image/question2.svg";
+        meta_theme_color.content = prefersDarkMode ? "#181f25" : "#F3F3F3";
     }
 }
 
@@ -224,6 +227,7 @@ function toggle_theme() {
     if (!current_loop) {
         target_channel_profile_image.src = newTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
     }
+    meta_theme_color.content = newTheme == "dark" ? "#181f25" : "#F3F3F3";
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 }
