@@ -13,12 +13,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#F3F3F3">
+
+    <meta property="og:title" content="WHO IS WATCHING" />
+    <meta property="og:description" content="配信を視聴している配信者を見つけましょう！" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://360tetsu360.github.io/who-is-watching/" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/360tetsu360/who-is-watching/main/image/w_logo2.jpg" />
+    <meta property="og:site_name" content="WHO IS WATCHING" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="WHO IS WATCHING" />
+    <meta name="twitter:description" content="配信を視聴している配信者を見つけましょう！" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/360tetsu360/who-is-watching/main/image/w_logo2.jpg" />
+
     <title>Who is Watching</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div id="project-name">WHO IS WATCHING</div>
+        <a id="project-name" href="/">
+            <img id="logo-icon" src="./image/w_logo.svg" width="30" height="30">
+            <div>WHO IS WATCHING</div>
+        </a>
         <div class="search-container">
             <input type="text" id="target_channel_id_input" placeholder="配信者を入力...">
             <button id="update_target_channel">

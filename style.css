@@ -68,9 +68,21 @@ a {
     max-width: 600px;
 }
 
+#logo-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 3px;
+    margin-right: 15px;
+}
+
 #project-name {
+    display: flex;
+    justify-content: center;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 24px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #theme-toggle {
