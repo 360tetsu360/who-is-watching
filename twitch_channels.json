@@ -2016,7 +2016,563 @@
         "display_name": "TwitchReo"
     },
     {
-        "twitch_id": "hkmode001",
-        "display_name": "hkmode001"
+        "twitch_id": "shinomiya_runa",
+        "display_name": "紫宮るな"
+    },
+    {
+        "twitch_id": "kaminariqpi",
+        "display_name": "神成きゅぴ"
+    },
+    {
+        "twitch_id": "uruhaichinose",
+        "display_name": "一ノ瀬うるは"
+    },
+    {
+        "twitch_id": "emtsmaru",
+        "display_name": "あいざわえま"
+    },
+    {
+        "twitch_id": "met_komori",
+        "display_name": "小森めと"
+    },
+    {
+        "twitch_id": "nazunakaga",
+        "display_name": "花芽なずな"
+    },
+    {
+        "twitch_id": "sendo_yuuhi",
+        "display_name": "千燈ゆうひ"
+    },
+    {
+        "twitch_id": "cr_cornn",
+        "display_name": "cr_cornn"
+    },
+    {
+        "twitch_id": "popogachi7",
+        "display_name": "ぽぽがち"
+    },
+    {
+        "twitch_id": "astellkr",
+        "display_name": "AstellKR"
+    },
+    {
+        "twitch_id": "qjacbtw",
+        "display_name": "Qjacbtw"
+    },
+    {
+        "twitch_id": "supermainy",
+        "display_name": "SuperMainy"
+    },
+    {
+        "twitch_id": "cr_cpt",
+        "display_name": "CR_Cpt"
+    },
+    {
+        "twitch_id": "mondo2244",
+        "display_name": "mondo2244"
+    },
+    {
+        "twitch_id": "makiba7",
+        "display_name": "makiba7"
+    },
+    {
+        "twitch_id": "robocosan_hololive",
+        "display_name": "robocosan_hololive"
+    },
+    {
+        "twitch_id": "akaihaato_hololive",
+        "display_name": "akaihaato_hololive"
+    },
+    {
+        "twitch_id": "murasakishionch_hololive",
+        "display_name": "紫咲シオン"
+    },
+    {
+        "twitch_id": "yukihanalamy_hololive",
+        "display_name": "yukihanalamy_hololive"
+    },
+    {
+        "twitch_id": "momosuzunene_hololive",
+        "display_name": "桃鈴ねね"
+    },
+    {
+        "twitch_id": "shishirobotan_hololive",
+        "display_name": "shishirobotan_hololive"
+    },
+    {
+        "twitch_id": "laplusdarknesss_hololive",
+        "display_name": "ラプラスダークネス総帥"
+    },
+    {
+        "twitch_id": "kanadeizuru_holostars",
+        "display_name": "奏手イヅル"
+    },
+    {
+        "twitch_id": "arurandeisu_holostars",
+        "display_name": "アルランディス"
+    },
+    {
+        "twitch_id": "rikka_holostars",
+        "display_name": "rikka_holostars"
+    },
+    {
+        "twitch_id": "yukokuroberu_holostars",
+        "display_name": "夕刻ロベル"
+    },
+    {
+        "twitch_id": "kageyamashien_holostars",
+        "display_name": "kageyamashien_holostars"
+    },
+    {
+        "twitch_id": "aragamioga_holostars",
+        "display_name": "荒咬オウガ"
+    },
+    {
+        "twitch_id": "usadapekora_hololive",
+        "display_name": "usadapekora_hololive"
+    },
+    {
+        "twitch_id": "watsonamelia_hololiveen",
+        "display_name": "watsonAMElia_hololiveen"
+    },
+    {
+        "twitch_id": "sakuramiko_hololive",
+        "display_name": "さくらみこ"
+    },
+    {
+        "twitch_id": "vestiazeta_hololiveid",
+        "display_name": "vestiazeta_hololiveid"
+    },
+    {
+        "twitch_id": "takanelui_hololive",
+        "display_name": "takanelui_hololive"
+    },
+    {
+        "twitch_id": "minatoaquach_hololive",
+        "display_name": "湊あくあ_本物"
+    },
+    {
+        "twitch_id": "nakiriayame_hololive",
+        "display_name": "百鬼あやめホロライブ"
+    },
+    {
+        "twitch_id": "axelsyrios_holostars_en",
+        "display_name": "axelsyrios_holostars_en"
+    },
+    {
+        "twitch_id": "josuijishinri",
+        "display_name": "josuijishinri"
+    },
+    {
+        "twitch_id": "machinaxflayon",
+        "display_name": "machinaxflayon"
+    },
+    {
+        "twitch_id": "banzoinhakka",
+        "display_name": "banzoinhakka"
+    },
+    {
+        "twitch_id": "magnidezmond_holostars_en",
+        "display_name": "magnidezmond_holostars_en"
+    },
+    {
+        "twitch_id": "noirvesper_holostars_en",
+        "display_name": "noirvesper_holostars_en"
+    },
+    {
+        "twitch_id": "minaserio_uproar",
+        "display_name": "水無世燐央"
+    },
+    {
+        "twitch_id": "utsugiuyu_uproar",
+        "display_name": "うゆ___"
+    },
+    {
+        "twitch_id": "mococoabyssgard",
+        "display_name": "mococoabyssgard"
+    },
+    {
+        "twitch_id": "fuwawaabyssgard",
+        "display_name": "fuwawaabyssgard"
+    },
+    {
+        "twitch_id": "natsuiromatsuri_hololive",
+        "display_name": "夏色まつりホロライブ"
+    },
+    {
+        "twitch_id": "crimzonruze_holostars_en",
+        "display_name": "CrimzonRuze_Holostars_EN"
+    },
+    {
+        "twitch_id": "octavio_holostars_en",
+        "display_name": "octavio_holostars_en"
+    },
+    {
+        "twitch_id": "elizabethrosebloodflame",
+        "display_name": "elizabethrosebloodflame"
+    },
+    {
+        "twitch_id": "raorapanthera_hololiveen",
+        "display_name": "raorapanthera_hololiveen"
+    },
+    {
+        "twitch_id": "gigimurin_hololiveen",
+        "display_name": "gigimurin_hololiveen"
+    },
+    {
+        "twitch_id": "tsukumo_yagami",
+        "display_name": "八神ツクモ"
+    },
+    {
+        "twitch_id": "minasedesu",
+        "display_name": "水無瀬ですです"
+    },
+    {
+        "twitch_id": "aria_konkon",
+        "display_name": "昏昏アリア"
+    },
+    {
+        "twitch_id": "kugaleo_q",
+        "display_name": "KugaLeo_Q"
+    },
+    {
+        "twitch_id": "itoitoi_q",
+        "display_name": "いといとい"
+    },
+    {
+        "twitch_id": "eito_aogiri8",
+        "display_name": "青桐エイト"
+    },
+    {
+        "twitch_id": "niu_yozuna",
+        "display_name": "夜絆ニウ"
+    },
+    {
+        "twitch_id": "hiurakuro",
+        "display_name": "日裏クロ"
+    },
+    {
+        "twitch_id": "utsuro__n",
+        "display_name": "幽乃うつろ"
+    },
+    {
+        "twitch_id": "shoichi_kanda",
+        "display_name": "神田笑一"
+    },
+    {
+        "twitch_id": "saku_sasaki84",
+        "display_name": "saku_sasaki84"
+    },
+    {
+        "twitch_id": "setomiya_chan",
+        "display_name": "瀬戸美夜子"
+    },
+    {
+        "twitch_id": "nijisanji_hayama_marin",
+        "display_name": "王覇山です"
+    },
+    {
+        "twitch_id": "honhima",
+        "display_name": "honhima"
+    },
+    {
+        "twitch_id": "makaino_ririmu",
+        "display_name": "魔界ノりりむ"
+    },
+    {
+        "twitch_id": "amamiyakokoro_",
+        "display_name": "あまみやこころ"
+    },
+    {
+        "twitch_id": "hajime_shibuya2434",
+        "display_name": "渋谷ハジメ2434"
+    },
+    {
+        "twitch_id": "mahiro_yukishiro",
+        "display_name": "雪城眞尋"
+    },
+    {
+        "twitch_id": "chigusa_nishizono",
+        "display_name": "本物の西園チグサ"
+    },
+    {
+        "twitch_id": "mashiro_meme",
+        "display_name": "mashiro_meme"
+    },
+    {
+        "twitch_id": "sara_hoshikawa",
+        "display_name": "星川サラ"
+    },
+    {
+        "twitch_id": "genzuki_tojiro",
+        "display_name": "genzuki_tojiro"
+    },
+    {
+        "twitch_id": "hello_miraijin",
+        "display_name": "hello_miraijin"
+    },
+    {
+        "twitch_id": "udukikohh",
+        "display_name": "卯月コウの隠れ家"
+    },
+    {
+        "twitch_id": "hisui_kitakoji",
+        "display_name": "北小路ヒスイ"
+    },
+    {
+        "twitch_id": "arsalmal",
+        "display_name": "アルスアルマル"
+    },
+    {
+        "twitch_id": "exalbio_2434",
+        "display_name": "エクスアルビオ"
+    },
+    {
+        "twitch_id": "ibrahimtv_2434",
+        "display_name": "ibrahimtv_2434"
+    },
+    {
+        "twitch_id": "kntfr_2434",
+        "display_name": "風楽奏斗"
+    },
+    {
+        "twitch_id": "gwelu_os_gar",
+        "display_name": "gwelu_os_gar"
+    },
+    {
+        "twitch_id": "eli_conifer",
+        "display_name": "エリーコニファーにじさんじ"
+    },
+    {
+        "twitch_id": "lauren_iroas2434",
+        "display_name": "lauren_iroas2434"
+    },
+    {
+        "twitch_id": "toru_2434",
+        "display_name": "小清水透"
+    },
+    {
+        "twitch_id": "fuwaminato2434",
+        "display_name": "不破湊です"
+    },
+    {
+        "twitch_id": "show_sylvestar",
+        "display_name": "星導ショウ"
+    },
+    {
+        "twitch_id": "akabane45",
+        "display_name": "akabane45"
+    },
+    {
+        "twitch_id": "igarashirika",
+        "display_name": "五十嵐梨花"
+    },
+    {
+        "twitch_id": "akkeyna2434",
+        "display_name": "akkeyna2434"
+    },
+    {
+        "twitch_id": "oliver_2434",
+        "display_name": "オリバーエバンス"
+    },
+    {
+        "twitch_id": "sakayorisoma",
+        "display_name": "sakayorisoma"
+    },
+    {
+        "twitch_id": "ishigami_nozomi",
+        "display_name": "石神のぞみ"
+    },
+    {
+        "twitch_id": "takamiyarion",
+        "display_name": "TakamiyaRion"
+    },
+    {
+        "twitch_id": "reika_kyochannel",
+        "display_name": "reika_kyochannel"
+    },
+    {
+        "twitch_id": "ttsugu",
+        "display_name": "てぃーつぐ"
+    },
+    {
+        "twitch_id": "matchan_minami",
+        "display_name": "matchan_minami"
+    },
+    {
+        "twitch_id": "zushishiminatsudo",
+        "display_name": "zushishiminatsudo"
+    },
+    {
+        "twitch_id": "rimokooon",
+        "display_name": "りもこんです"
+    },
+    {
+        "twitch_id": "fuuhaya_",
+        "display_name": "ふうはや"
+    },
+    {
+        "twitch_id": "mkunminatsudo",
+        "display_name": "mkunminatsudo"
+    },
+    {
+        "twitch_id": "nobaman",
+        "display_name": "のばまん"
+    },
+    {
+        "twitch_id": "gikochan_chin",
+        "display_name": "ぎこちゃん"
+    },
+    {
+        "twitch_id": "maguro29game",
+        "display_name": "まぐにぃゲーム実況分館"
+    },
+    {
+        "twitch_id": "vspo_official",
+        "display_name": "Vspo_official"
+    },
+    {
+        "twitch_id": "junior27015",
+        "display_name": "JUNiOR27015"
+    },
+    {
+        "twitch_id": "ishigakiyama",
+        "display_name": "ishigakiyama"
+    },
+    {
+        "twitch_id": "sugarz3ro",
+        "display_name": "SugarZ3ro"
+    },
+    {
+        "twitch_id": "dep_ow",
+        "display_name": "dep_ow"
+    },
+    {
+        "twitch_id": "mocopfe",
+        "display_name": "もこぱふぇ"
+    },
+    {
+        "twitch_id": "acola_lui",
+        "display_name": "acola_lui"
+    },
+    {
+        "twitch_id": "kohalzt",
+        "display_name": "こはるｻﾝ"
+    },
+    {
+        "twitch_id": "byknn",
+        "display_name": "バイキンさん"
+    },
+    {
+        "twitch_id": "minipiyofn",
+        "display_name": "みにぴよ"
+    },
+    {
+        "twitch_id": "thek4sen",
+        "display_name": "thek4sen"
+    },
+    {
+        "twitch_id": "hiroronnsann",
+        "display_name": "hiroronnsann"
+    },
+    {
+        "twitch_id": "shirassr",
+        "display_name": "しらすぱん"
+    },
+    {
+        "twitch_id": "serena329",
+        "display_name": "세레나___"
+    },
+    {
+        "twitch_id": "gero_bs",
+        "display_name": "gero_bs"
+    },
+    {
+        "twitch_id": "falk_vlt",
+        "display_name": "falk_vlt"
+    },
+    {
+        "twitch_id": "ayutash7",
+        "display_name": "ayutash7"
+    },
+    {
+        "twitch_id": "yvyfpss",
+        "display_name": "yvyfpss"
+    },
+    {
+        "twitch_id": "hatto_c",
+        "display_name": "はっとツ"
+    },
+    {
+        "twitch_id": "honey_bunnytt",
+        "display_name": "はにばに"
+    },
+    {
+        "twitch_id": "kurfzvlrt",
+        "display_name": "かーふず"
+    },
+    {
+        "twitch_id": "lefiedot",
+        "display_name": "lefiedot"
+    },
+    {
+        "twitch_id": "zeta_kaua",
+        "display_name": "かうあ"
+    },
+    {
+        "twitch_id": "kreameryu",
+        "display_name": "kreameryu"
+    },
+    {
+        "twitch_id": "yumafv",
+        "display_name": "yumafv"
+    },
+    {
+        "twitch_id": "shuraku24",
+        "display_name": "Shuraku24"
+    },
+    {
+        "twitch_id": "koyota1211",
+        "display_name": "koyota1211"
+    },
+    {
+        "twitch_id": "kaito716",
+        "display_name": "kaito716"
+    },
+    {
+        "twitch_id": "kes080",
+        "display_name": "kes080"
+    },
+    {
+        "twitch_id": "zeta_watanabe",
+        "display_name": "渡辺エリザ"
+    },
+    {
+        "twitch_id": "sejfinn",
+        "display_name": "SEjFiNN"
+    },
+    {
+        "twitch_id": "xdll_vl",
+        "display_name": "xdll_vl"
+    },
+    {
+        "twitch_id": "pelican_75",
+        "display_name": "펠리칸인디용"
+    },
+    {
+        "twitch_id": "solluzy",
+        "display_name": "Solluzy"
+    },
+    {
+        "twitch_id": "killaa_vl",
+        "display_name": "killaa_vl"
+    },
+    {
+        "twitch_id": "cluzqhi3",
+        "display_name": "cluzqhi3"
+    },
+    {
+        "twitch_id": "johntaua",
+        "display_name": "JohntaUA"
     }
 ]
