@@ -153,6 +153,7 @@ const search_button_img = document.getElementById("search_button_img");
 const reset_button_img = document.getElementById("reset_button_img");
 const github_icon_img = document.getElementById("github-icon-img");
 const target_channel_id_input = document.getElementById("target_channel_id_input");
+const delete_img = document.getElementById("delete_img");
 const update_target_channel = document.getElementById("update_target_channel");
 const search_result = document.getElementById("search-result");
 const target_channel_link = document.getElementById("target_channel_url");
@@ -204,6 +205,7 @@ function set_initial_theme() {
         reset_button_img.src = savedTheme == "dark" ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = savedTheme == "dark" ? "image/github-mark-white.svg" : "image/github-mark.svg";
         target_channel_profile_image.src = savedTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
+        delete_img.src = savedTheme == "dark" ? "image/cross1.svg": "image/cross2.svg";
         meta_theme_color.content = savedTheme == "dark" ? "#181f25" : "#F3F3F3";
     } else {
         const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -213,6 +215,7 @@ function set_initial_theme() {
         reset_button_img.src = prefersDarkMode ? "image/reload2.svg" : "image/reload1.svg";
         github_icon_img.src = prefersDarkMode ? "image/github-mark-white.svg" : "image/github-mark.svg";
         target_channel_profile_image.src = prefersDarkMode ? "image/question1.svg" : "image/question2.svg";
+        delete_img.src = prefersDarkMode ? "image/cross1.svg" : "image/cross2.svg";
         meta_theme_color.content = prefersDarkMode ? "#181f25" : "#F3F3F3";
     }
 }
@@ -224,12 +227,17 @@ function toggle_theme() {
     search_button_img.src = newTheme == "dark" ? "image/search2.svg" : "image/search1.svg";
     reset_button_img.src = newTheme == "dark" ? "image/reload2.svg" : "image/reload1.svg";
     github_icon_img.src = newTheme == "dark" ? "image/github-mark-white.svg" : "image/github-mark.svg";
+    delete_img.src = newTheme == "dark" ? "image/cross1.svg" : "image/cross2.svg";
     if (!current_loop) {
         target_channel_profile_image.src = newTheme == "dark" ? "image/question1.svg" : "image/question2.svg";
     }
     meta_theme_color.content = newTheme == "dark" ? "#181f25" : "#F3F3F3";
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+}
+
+function delete_query() {
+    target_channel_id_input.value = "";
 }
 
 function find_streamer(text) {
@@ -440,4 +448,9 @@ async function postToX() {
     const hashtags = encodeURIComponent("whoiswatchingtwitch");
     const tweetUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}&hashtags=${hashtags}`;
     tweet_button.href = tweetUrl;
+}
+
+function save_search(query_login) {
+    let history = JSON.parse(localStorage.getItem("id_history")) || [];
+    history.unshift(query_login);
 }

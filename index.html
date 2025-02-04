@@ -38,10 +38,15 @@
     <header>
         <a id="project-name" href="/who-is-watching/">
             <img id="logo-icon" src="./image/w_logo.svg" width="30" height="30">
-            <div>WHO IS WATCHING</div>
+            <div id="title">WHO IS WATCHING</div>
         </a>
         <div class="search-container">
-            <input type="text" id="target_channel_id_input" placeholder="配信者を入力...">
+            <div id="input-container">
+                <input type="text" id="target_channel_id_input" placeholder="配信者を入力...">
+                <button id="delete" onclick="delete_query()">
+                    <img id="delete_img" src="image/cross1.svg" alt="Delete" width="20" height="20" />
+                </button>
+            </div>
             <button id="update_target_channel">
                 <img id="search_button_img" src="image/search1.svg" width="20px" height="20px">
             </button>
