@@ -421,6 +421,18 @@ function reset_list() {
     updateTarget();
 }
 
+function countWidth(str) {
+    let count = 0;
+    for (const char of str) {
+        if (char.match(/[^\x01-\x7E]/) || char.match(/[\uFF01-\uFF60]/)) {
+            count += 2;
+        } else {
+            count += 1;
+        }
+    }
+    return count;
+}
+
 async function postToX() {
     if (current_login == null || listed_channels.length == 0) {
         return;
@@ -431,19 +443,35 @@ async function postToX() {
         return;
     }
 
-    let customText = `${current_login_status.display_name}を視聴中の配信者:`
-    for (let index = 0; index < listed_channels.length; index++) {
-        const element = listed_channels[index];
-        let element_login_status = await twitch_get_channel_status(element);
+    let tweet_text = `${current_login_status.display_name}を視聴中の配信者:`
+    let current_length = countWidth(current_login) + 46;
+    for (let i = 0; i < listed_channels.length; i++) {
+        const element = listed_channels[i];
+        const element_login_status = await twitch_get_channel_status(element);
         if (!element_login_status) {
-            return;
+            continue;
         }
-        customText += ` ${element_login_status.display_name}`;
-        if (index < listed_channels.length - 1) {
-            customText += ",";
+        let channel_text = ` ${element_login_status.display_name}`;
+        const remaining_count = listed_channels.length - i - 1;
+        if (remaining_count > 0) {
+            channel_text += ",";
+        }
+
+        const channel_length = countWidth(channel_text);
+        const remaining_text_next = remaining_count > 0 ? ` 他${remaining_count}人` : "";
+        const remaining_text_next_length = countWidth(remaining_text_next);
+
+        if (current_length + channel_length > 270 ||
+            (remaining_count > 0 && current_length + channel_length + remaining_text_next_length > 270)) {
+            tweet_text += ` 他${remaining_count + 1}人`;
+            break;
+        } else {
+            tweet_text += channel_text;
+            current_length += channel_length;
         }
     }
-    const text = encodeURIComponent(customText);
+    tweet_text += "\n";
+    const text = encodeURIComponent(tweet_text);
     const url = encodeURIComponent(`${window.location.origin}${window.location.pathname}?id=${current_login}`);
     const hashtags = encodeURIComponent("whoiswatchingtwitch");
     const tweetUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}&hashtags=${hashtags}`;
