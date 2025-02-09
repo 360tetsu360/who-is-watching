@@ -99,7 +99,7 @@ async function twitch_get_channel_status(login) {
         const broadcast_status = result[1].data.user.lastBroadcast;
         const stream_created_at = is_streaming == null ? "" : is_streaming.createdAt;
         const last_broadcast_title = broadcast_status.title;
-        const last_broadcast_game = broadcast_status.game.displayName;
+        const last_broadcast_game = broadcast_status.game?.displayName ?? "";
         const display_name = result[2].data.userOrError.displayName;
         const viewer = is_streaming == null ? 0 : result[2].data.userOrError.stream.viewersCount;
         const follower = result[3].data.user.followers.totalCount;
