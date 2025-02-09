@@ -16,6 +16,6 @@
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone",
-    "start_url": "/who-is-watching/",
-    "scope": "/who-is-watching/"
+    "start_url": "/",
+    "scope": "/"
   }
