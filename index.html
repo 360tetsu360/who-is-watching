@@ -79,10 +79,22 @@
         </div>
 
         <div class="checkbox-container">
-            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_mode">Moderators</label>
-            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_vip">VIPs</label>
-            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_staff">Staffs</label>
-            <label class="checkbox-item"><input type="checkbox" class="checkbox" id="check_viewer" checked>Viewers</label>
+            <label class="checkbox-item">
+                <input type="checkbox" class="checkbox" id="check_mode" onchange="save_settings()">
+                Moderators
+            </label>
+            <label class="checkbox-item">
+                <input type="checkbox" class="checkbox" id="check_vip" onchange="save_settings()">
+                VIPs
+            </label>
+            <label class="checkbox-item">
+                <input type="checkbox" class="checkbox" id="check_staff" onchange="save_settings()">
+                Staffs
+            </label>
+            <label class="checkbox-item">
+                <input type="checkbox" class="checkbox" id="check_viewer" checked onchange="save_settings()">
+                Viewers
+            </label>
             <button type="button" id="reset_button" onclick="reset_list()">
                 <img src="image/reload1.svg" id="reset_button_img" width="20px" height="20px">
                 <p>Reset</p>

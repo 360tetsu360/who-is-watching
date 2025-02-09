@@ -172,6 +172,7 @@ const tweet_button = document.getElementById("tweet-button");
 const loader = document.getElementById("loader");
 const required_time_message = document.getElementById("required_time_message");
 set_initial_theme();
+load_settings();
 color_theme_toggle.onclick = toggle_theme;
 
 var twitch_channels = [];
@@ -194,6 +195,35 @@ if (params.has("id")) {
     const id = params.get("id");
     target_channel_id_input.value = id;
     updateTarget();
+}
+
+function load_settings() {
+    const savedSettingsJson = localStorage.getItem("settings");
+    if (savedSettingsJson) {
+        const savedSettings = JSON.parse(savedSettingsJson);
+        check_mode.checked = savedSettings.moderator;
+        check_vip.checked = savedSettings.vip;
+        check_staff.checked = savedSettings.staff;
+        check_viewer.checked = savedSettings.viewer;
+    } else {
+        const newSettings = {
+            moderator: false,
+            vip: false,
+            staff: false,
+            viewer: true,
+        };
+        localStorage.setItem('settings', JSON.stringify(newSettings));
+    }
+}
+
+function save_settings() {
+    const newSettings = {
+        moderator: check_mode.checked,
+        vip: check_vip.checked,
+        staff: check_staff.checked,
+        viewer: check_viewer.checked,
+    };
+    localStorage.setItem('settings', JSON.stringify(newSettings));
 }
 
 function set_initial_theme() {
