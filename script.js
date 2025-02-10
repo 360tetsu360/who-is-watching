@@ -227,13 +227,13 @@ function determine_layout(ads) {
     if (window_width < 1380) {
         left_panel.style.display = "none";
     } else {
-        left_panel.style.display = "block";
+        left_panel.style.display = "flex";
     }
 
     if (window_width < 1000) {
         right_panel.style.display = "none";
     } else {
-        right_panel.style.display = "block";
+        right_panel.style.display = "flex";
     }
 
     if (window_width < 640) {
