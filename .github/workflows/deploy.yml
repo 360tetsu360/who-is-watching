@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate `ads.json`
         run: |
           echo '${{ secrets.A8_ADS_JSON }}' > ads.json
 
-      - name: Deploy GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+      - name: Push gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: .
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
