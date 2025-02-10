@@ -175,6 +175,11 @@ set_initial_theme();
 load_settings();
 color_theme_toggle.onclick = toggle_theme;
 
+fetch('ads.json')
+    .then(response => response.json())
+    .then(data => determine_layout(data))
+    .catch(error => console.error('Error loading JSON:', error));
+
 var twitch_channels = [];
 fetch('twitch_channels.json')
     .then(response => response.json())
@@ -195,6 +200,64 @@ if (params.has("id")) {
     const id = params.get("id");
     target_channel_id_input.value = id;
     updateTarget();
+}
+
+function getRandomElements(arr, n) {
+    const shuffled = arr.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, n);
+}
+
+function determine_layout(ads) {
+    const left_panel = document.getElementById("left-panel");
+    const right_panel = document.getElementById("right-panel");
+    const ad_top_long = document.getElementById("ad-top-long");
+    const ad_top_short = document.getElementById("ad-top-short");
+    const ad_bottom_long = document.getElementById("ad-bottom-long");
+    const ad_bottom_short = document.getElementById("ad-bottom-short");
+    ad_top_short.style.display = "none";
+    ad_bottom_short.style.display = "none";
+    const window_width = document.documentElement.clientWidth;
+
+    if (window_width < 1380) {
+        left_panel.style.display = "none";
+    }
+
+    if (window_width < 1000) {
+        right_panel.style.display = "none";
+    }
+
+    if (window_width < 640) {
+        ad_top_long.style.display = "none";
+        ad_bottom_long.style.display = "none";
+        ad_top_short.style.display = "block";
+        ad_bottom_short.style.display = "block";
+    }
+
+    if (right_panel.style.display != "none") {
+        const big_ads = getRandomElements(ads.big, 3);
+        for (ad of big_ads) {
+            const container = document.createElement("div");
+            container.className = "ad-banner-big";
+            container.innerHTML = ad;
+            right_panel.appendChild(container);
+        }
+    }
+
+    if (ad_top_long.style.display != "none") {
+        const long_ads = getRandomElements(ads.long, 2);
+        ad_top_long.innerHTML = long_ads[0];
+        ad_bottom_long.innerHTML = long_ads[1];
+    }
+
+    if (ad_top_short.style.display != "none") {
+        const short_ads = getRandomElements(ads.short, 2);
+        ad_top_short.innerHTML = short_ads[0];
+        ad_bottom_short.innerHTML = short_ads[1];
+    }
 }
 
 function load_settings() {
