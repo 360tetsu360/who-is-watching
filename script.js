@@ -218,8 +218,12 @@ function determine_layout(ads) {
     const ad_top_short = document.getElementById("ad-top-short");
     const ad_bottom_long = document.getElementById("ad-bottom-long");
     const ad_bottom_short = document.getElementById("ad-bottom-short");
+
+    left_panel.style.display = "block";
+    right_panel.style.display = "block";
     ad_top_short.style.display = "none";
     ad_bottom_short.style.display = "none";
+    
     const window_width = document.documentElement.clientWidth;
 
     if (window_width < 1380) {

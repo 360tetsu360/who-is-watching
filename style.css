@@ -108,6 +108,7 @@ main {
     min-width: 350px;
     flex-shrink: 1;
     flex-grow: 0;
+    display: none;
 }
 
 .central-panel {
@@ -129,6 +130,7 @@ main {
     flex-direction: column;
     padding-top: 25px;
     gap: 25px;
+    display: none;
 }
 
 .search-container {

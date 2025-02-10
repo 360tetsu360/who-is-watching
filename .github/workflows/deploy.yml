@@ -17,6 +17,7 @@ jobs:
       - name: Generate `ads.json`
         run: |
           echo '${{ secrets.A8_ADS_JSON }}' > ads.json
+          git add -f ads.json
 
       - name: Push gh-pages
         uses: peaceiris/actions-gh-pages@v3
