@@ -3,4 +3,4 @@ Twitchの[サービス利用規約](#note1)※1 および  [Twitch Developer Ser
 
 ### 注釈
 1. ※1 [サービス利用規約](https://www.twitch.tv/p/ja-jp/legal/terms-of-service/#10-prohibited-conduct)  
-2. ※2 [Twitch Developer Services Agreement](https://www.twitch.tv/p/legal/content-guidelines)  
+2. ※2 [Twitch Developer Services Agreement](https://www.twitch.tv/p/ja-jp/legal/developer-agreement/)  
