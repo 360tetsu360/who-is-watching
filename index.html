@@ -1,131 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQYPBTDC5V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-CQYPBTDC5V');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#F3F3F3">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-
-    <meta property="og:title" content="WHO IS WATCHING" />
-    <meta property="og:description" content="配信を視聴している配信者を見つけましょう！" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://whoiswatching.jp" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/360tetsu360/who-is-watching/main/image/w_logo2.jpg" />
-    <meta property="og:site_name" content="WHO IS WATCHING" />
-    
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="WHO IS WATCHING" />
-    <meta name="twitter:description" content="配信を視聴している配信者を見つけましょう！" />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/360tetsu360/who-is-watching/main/image/w_logo2.jpg" />
-
-    <title>Who is Watching</title>
-    <link rel="stylesheet" href="style.css">
+    <title>お知らせ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            font-size: 0.9em;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <a id="project-name" href="/">
-            <img id="logo-icon" src="image/w_logo.svg" width="30" height="30">
-            <div id="title">WHO IS WATCHING</div>
-        </a>
-        <div class="search-container">
-            <div id="input-container">
-                <input type="text" id="target_channel_id_input" placeholder="配信者を入力...">
-                <button id="delete" onclick="delete_query()">
-                    <img id="delete_img" src="image/cross1.svg" alt="Delete" width="20" height="20" />
-                </button>
-            </div>
-            <button id="update_target_channel">
-                <img id="search_button_img" src="image/search1.svg" width="20px" height="20px">
-            </button>
-        </div>
-        <div id="button_container">
-            <a href="https://github.com/360tetsu360/who-is-watching" target="_blank">
-                <img id="github-icon-img" src="image/github-mark-white.svg" alt="GitHub" width="30" height="30" />
-            </a>
-            <button id="color_theme_toggle">
-                <img id="color_theme_img" src="image/moon.svg" alt="Moon" width="30" height="30" />
-            </button>
-        </div>
-    </header>
+    <p>
+        Twitchの<a href="#note1">サービス利用規約<sup>※1</sup></a>および
+        <a href="#note2">Twitch Developer Services Agreement<sup>※2</sup></a>に違反していることが判明したため、該当コンテンツを自主的に削除しました。  
+        引き続き<a href="https://x.com/_WHOSWATCHING" target="_blank">X</a>での運用は続けていきますので、よろしくお願いいたします。
+    </p>
 
-    <main>
-        <div class="left-panel" id="left-panel">
-
-        </div>
-        <div class="central-panel">
-            <div class="ad-banner-long" id="ad-top-long"></div>
-            <div class="ad-banner-short" id="ad-top-short"></div>
-            <div class="description">Twitch配信を観ている配信者を探します。</div>
-            <div class="description">配信者が見つからない場合はTwitch IDを入力してください。</div>
-            <div id="search-result">
-                <a id="target_channel_url" target="_blank">
-                    <div id="target_image_container">
-                        <img id="target_channel_profile_image" src="image/question1.svg">
-                        <div class="target-overlay" id="target_channel_streaming">配信中</div>
-                    </div>
-                </a>
-                <div class="target-item-details">
-                    <span class="item-name" id="target_channel_display_name">Streamer Name</span>
-                    <span class="item-title" id="target_channel_last_title">Stream Title</span>
-                    <span class="item-game" id="target_channel_last_game">Game Name</span>
-                </div>
-            </div>
-
-            <div class="checkbox-container">
-                <label class="checkbox-item">
-                    <input type="checkbox" class="checkbox" id="check_mode" onchange="save_settings()">
-                    Moderators
-                </label>
-                <label class="checkbox-item">
-                    <input type="checkbox" class="checkbox" id="check_vip" onchange="save_settings()">
-                    VIPs
-                </label>
-                <label class="checkbox-item">
-                    <input type="checkbox" class="checkbox" id="check_staff" onchange="save_settings()">
-                    Staffs
-                </label>
-                <label class="checkbox-item">
-                    <input type="checkbox" class="checkbox" id="check_viewer" checked onchange="save_settings()">
-                    Viewers
-                </label>
-                <button type="button" id="reset_button" onclick="reset_list()">
-                    <img src="image/reload1.svg" id="reset_button_img" width="20px" height="20px">
-                    <p>Reset</p>
-                </button>
-                <a id="tweet-button" target="_blank">
-                    <img id="x_img" src="./image/logo.svg">
-                    <p>に投稿</p>
-                </a>
-            </div>
-
-
-            <div id="list-container">
-                <ul id="watching_streamer_list"></ul>
-                <div class="loader-container">
-                    <div class="loader" id="loader"></div>
-                </div>
-            </div>
-            <div class="description">検出率は100%ではありません。検出するまでに時間を要する場合があります。</div>
-            <div id="required_time_message" class="description"></div>
-            <div class="ad-banner-long" id="ad-bottom-long"></div>
-            <div class="ad-banner-short" id="ad-bottom-short"></div>
-        </div>
-        <div class="right-panel" id="right-panel">
-        </div>
-    </main>
-    <script src="script.js"></script>
+    <div class="note">
+        <p id="note1">※1 <a href="https://www.twitch.tv/p/ja-jp/legal/terms-of-service/#10-prohibited-conduct" target="_blank">サービス利用規約</a></p>
+        <p id="note2">※2 <a href="https://www.twitch.tv/p/legal/content-guidelines" target="_blank">Twitch Developer Services Agreement</a></p>
+    </div>
 </body>
 </html>
